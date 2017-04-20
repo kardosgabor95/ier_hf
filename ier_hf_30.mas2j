@@ -1,0 +1,16 @@
+/* Jason Project */
+
+
+
+MAS ier_hf_30 {
+	infrastructure: Centralised
+	environment: InfoEnv(gui)
+    
+    agents:
+        parkolo;
+        lift;
+        porta;
+        szemely;
+}
+
+
