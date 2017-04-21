@@ -21,45 +21,45 @@ public class LiftView extends GridWorldView {
     /** draw application objects */
     @Override
     public void draw(Graphics g, int x, int y, int object) {
-        Location lLift = lmodel.getAgPos(1);
+        Location lLift = lmodel.getAgPos(0);
         super.drawAgent(g, x, y, Color.lightGray, -1);
         switch (object) {
-            case LiftModel.negyedik:
+            case LiftModel.NEGYEDIK:
                 if(lLift.equals(lmodel.lNegyedik)) {
                     super.drawAgent(g, x, y, Color.yellow, -1);
                 }
                 g.setColor(Color.black);
                 drawString(g, x, y, defaultFont, "4.");
                 break;
-            case LiftModel.harmadik:
+            case LiftModel.HARMADIK:
                 if(lLift.equals(lmodel.lHarmadik)) {
                     super.drawAgent(g, x, y, Color.yellow, -1);
                 }
                 g.setColor(Color.black);
                 drawString(g, x, y, defaultFont, "3.");
                 break;
-            case LiftModel.masodik:
+            case LiftModel.MASODIK:
                 if(lLift.equals(lmodel.lMasodik)) {
                     super.drawAgent(g, x, y, Color.yellow, -1);
                 }
                 g.setColor(Color.black);
                 drawString(g, x, y, defaultFont, "2.");
                 break;
-            case LiftModel.elso:
+            case LiftModel.ELSO:
                 if(lLift.equals(lmodel.lElso)) {
                     super.drawAgent(g, x, y, Color.yellow, -1);
                 }
                 g.setColor(Color.black);
                 drawString(g, x, y, defaultFont, "1.");
                 break;
-            case LiftModel.foldszint:
+            case LiftModel.FOLDSZINT:
                 if(lLift.equals(lmodel.lFoldszint)) {
                     super.drawAgent(g, x, y, Color.yellow, -1);
                 }
                 g.setColor(Color.black);
                 drawString(g, x, y, defaultFont, "0.");
                 break;
-            case LiftModel.parkolo:
+            case LiftModel.PARKOLO:
                 if(lLift.equals(lmodel.lParkolo)) {
                     super.drawAgent(g, x, y, Color.yellow, -1);
                 }
@@ -70,12 +70,12 @@ public class LiftView extends GridWorldView {
         repaint();
     }
 
-    @Override
+    /*@Override
     public void drawAgent(Graphics g, int x, int y, Color c, int id) {
         Location lLift = lmodel.getAgPos(1);
         c = Color.yellow;
         super.drawAgent(g, x, y, c, -1);
         g.setColor(Color.black);
         super.drawString(g, x, y, defaultFont, "Lift");
-    }
+    }*/
 }

@@ -1,12 +1,21 @@
-// Agent szemely in project ier_hf_30.mas2j
-
-/* Initial beliefs and rules */
-
-/* Initial goals */
-
+// Agent szemely in project ier_hf_30.mas2j
 
-
-/* Plans */
-
+
+
+/* Initial beliefs and rules */
+
+
+
+/* Initial goals */
+
+
+
+
+
+
+/* Plans */
+
+
+
 
 

@@ -36,7 +36,7 @@ public class InfoEnv extends Environment {
         clearPercepts("lift");
 
         // get the robot location
-        Location lLift = liftModel.getAgPos(1);
+        Location lLift = liftModel.getAgPos(0);
 
         // add agent location to its percepts
         if (lLift.equals(liftModel.lParkolo)) {

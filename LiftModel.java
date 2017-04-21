@@ -2,12 +2,14 @@ import jason.environment.grid.GridWorldModel;
 import jason.environment.grid.Location;
 
 public class LiftModel extends GridWorldModel {
-    public static final int negyedik  = 4;
-    public static final int harmadik  = 3;
-    public static final int masodik   = 2;
-    public static final int elso      = 1;
-    public static final int foldszint = 0;
-    public static final int parkolo   =-1;
+
+    // constants for the grid objects
+    public static final int NEGYEDIK  = 16;
+    public static final int HARMADIK  = 32;
+    public static final int MASODIK   = 48;
+    public static final int ELSO      = 64;
+    public static final int FOLDSZINT = 80;
+    public static final int PARKOLO   = 96;
 
     Location lNegyedik  = new Location(0,0);
     Location lHarmadik  = new Location(0,1);
@@ -18,30 +20,30 @@ public class LiftModel extends GridWorldModel {
 
     public LiftModel() {
 
-        super(1,6,4);
+        super(1,6,1);
 
-        setAgPos(1, 0, 4);
+        setAgPos(0, 0, 3);
 
-        add(negyedik, lNegyedik);
-        add(harmadik, lHarmadik);
-        add(masodik, lMasodik);
-        add(elso, lElso);
-        add(foldszint, lFoldszint);
-        add(parkolo, lParkolo);
+        add(NEGYEDIK, lNegyedik);
+        add(HARMADIK, lHarmadik);
+        add(MASODIK, lMasodik);
+        add(ELSO, lElso);
+        add(FOLDSZINT, lFoldszint);
+        add(PARKOLO, lParkolo);
     }
 
-    boolean move_to(Location dest) {
-        Location lift = getAgPos(1);
+    /*boolean move_to(Location dest) {
+        Location lift = getAgPos(0);
         if (lift.y < dest.y)        lift.y++;
         else if (lift.y > dest.y)   lift.y--;
 
-        setAgPos(1, lift); // move the robot in the grid
+        setAgPos(0, lift); // move the robot in the grid
 
         // repaint the fridge and owner locations
         /*if (view != null) {
             view.update(lFridge.x,lFridge.y);
             view.update(lOwner.x,lOwner.y);
-        }*/
+        }*
         return true;
-    }
+    }*/
 }
