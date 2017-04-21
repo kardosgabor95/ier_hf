@@ -8,7 +8,7 @@
 
 /* Plans */
 
-+!erkezett(KI,RSZ,TEL) : true <- +ittvan(KI,RSZ,TEL); .send(lift, achieve, call(lift, -1));
++!erkezett(KI,RSZ,TEL) : true <- +ittvan(KI,RSZ,TEL); .send(lift, achieve, call(lift,parkolo));
 .send(porta, achieve, azonosit(KI)).
 
 +!tavozik(KI) : true <- -ittvan(KI,_,_).

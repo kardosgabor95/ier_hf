@@ -22,7 +22,7 @@ public class LiftModel extends GridWorldModel {
 
         super(1,6,4);
 
-        setAgPos(1, 0, 3);
+        setAgPos(1, 0, 0);
 
         add(NEGYEDIK, lNegyedik);
         add(HARMADIK, lHarmadik);
@@ -37,7 +37,7 @@ public class LiftModel extends GridWorldModel {
         if (lift.y < dest.y)        lift.y++;
         else if (lift.y > dest.y)   lift.y--;
 
-        setAgPos(1, lift); // move the robot in the grid
+        setAgPos(1, lift.x, lift.y); // move the robot in the grid
 
         // repaint the fridge and owner locations
         /*if (view != null) {

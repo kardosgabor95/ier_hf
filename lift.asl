@@ -8,11 +8,11 @@
 
 +!call(lift,IDE) : true <- !move(lift,IDE).
 
-+!move(lift,IDE,KI) : IDE == -1 & kikerte(KI) <- .print("Vigye vissza a kulcsot!").
++!move(lift,IDE,KI) : IDE == parkolo & kikerte(KI) <- .print("Vigye vissza a kulcsot!").
 
-+!move(lift,IDE,KI) : IDE == -1 & ~kikerte(KI) <- !move(lift,IDE).
++!move(lift,IDE,KI) : IDE == parkolo & ~kikerte(KI) <- !move(lift,IDE).
 
-+!move(lift,IDE,KI) : IDE \== -1 <- !move(lift,IDE).
++!move(lift,IDE,KI) : IDE \== parkolo <- !move(lift,IDE).
 
 +!move(lift,IDE) : true <- !at(lift,IDE).
 

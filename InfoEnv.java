@@ -76,13 +76,32 @@ public class InfoEnv extends Environment {
 
         if (action.getFunctor().equals("move_to")) {
             String l = action.getTerm(0).toString();
-            Location dest = new Location(0,Integer.parseInt(l));
-            try {
+            switch(l) {
+              case "negyedik":
+                result = liftModel.move_to(liftModel.lNegyedik);
+              break;
+              case "harmadik":
+                result = liftModel.move_to(liftModel.lHarmadik);
+              break;
+              case "masodik":
+                result = liftModel.move_to(liftModel.lMasodik);
+              break;
+              case "elso":
+                result = liftModel.move_to(liftModel.lElso);
+              break;
+              case "foldszint":
+                result = liftModel.move_to(liftModel.lFoldszint);
+              break;
+              case "parkolo":
+                result = liftModel.move_to(liftModel.lParkolo);
+              break;
+            }
+            /*try {
                 result = liftModel.move_to(dest);
             }
             catch (Exception ex) {
                 ex.printStackTrace();;
-            }
+            }*/
 
         } else {
             logger.info("Failed to execute action "+action);
