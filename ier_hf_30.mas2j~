@@ -7,7 +7,7 @@ MAS ier_hf_30 {
 	environment: InfoEnv(gui)
     
     agents:
-        parkolo agentArchClass ParkoloGUI;
+        parkolo;
         lift;
         porta;
         szemely;

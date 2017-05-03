@@ -4,10 +4,12 @@
 
 /* Initial goals */
 
-!erkezett("Tade","AAA-000","+36000000").
+//!erkezett("Tade","AAA-000","+36000000").
 
 /* Plans */
 
+//ha valaki megerkezik a parkoloba rogziti es hiv egy liftet
+//keri a portat, hogy azonositsa az illetot
 +!erkezett(KI,RSZ,TEL) : true <- +ittvan(KI,RSZ,TEL); .send(lift, achieve, call(lift,parkolo));
 .send(porta, achieve, azonosit(KI)).
 
@@ -15,3 +17,5 @@
 
 +!ertesit(KI) : ittvan(KI,_,_) <- ?ittvan(KI,RSZ,TEL); 
 .concat(KI,": ",RSZ,": ",TEL," hagyja el a parkolot! Izibe!",M); .print(M).
+
++!ertesit(KI) : true <- .print(KI, " nincs az epuletben.").

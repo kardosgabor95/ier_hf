@@ -3,6 +3,9 @@ import jason.environment.Environment;
 import jason.environment.grid.Location;
 import java.util.logging.Logger;
 
+
+
+
 public class InfoEnv extends Environment {
 
     // common literals
