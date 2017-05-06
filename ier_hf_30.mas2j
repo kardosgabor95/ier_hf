@@ -8,9 +8,9 @@ MAS ier_hf_30 {
     
     agents:
         parkolo agentArchClass ParkoloGUI;
-        lift;
-        porta;
-        szemely;
+        lift agentArchClass LiftGUI;
+        porta agentArchClass PortaGUI;
+       
 }
 
 

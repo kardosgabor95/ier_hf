@@ -8,9 +8,9 @@
 
 +!call(lift,IDE) : true <- !move(lift,IDE).
 
-+!move(lift,IDE,KI) : IDE == parkolo & kikerte(KI) <- .print("Vigye vissza a kulcsot!").
++!move(lift,IDE,KI) : IDE == parkolo & kikerte(KI,_) <- .print("Vigye vissza a kulcsot!").
 
-+!move(lift,IDE,KI) : IDE == parkolo & ~kikerte(KI) <- !move(lift,IDE).
++!move(lift,IDE,KI) : IDE == parkolo & not kikerte(KI,_) <- !move(lift,IDE).
 
 +!move(lift,IDE,KI) : IDE \== parkolo <- !move(lift,IDE).
 
@@ -20,6 +20,6 @@
 
 +!at(lift,IDE) : not at(lift,IDE) <- move_to(IDE); !at(lift,IDE).
 
-+!key_off(KI) : true <- kikerte(KI).
++!key_off(KI,TEREMSZAM) : true <- +kikerte(KI,TEREMSZAM).
 
-+!key_in(KI) : true <- ~kikerte(KI).
++!key_in(KI,TEREMSZAM) : true <- -kikerte(KI,TEREMSZAM).

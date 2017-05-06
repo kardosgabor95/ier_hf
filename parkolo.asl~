@@ -17,3 +17,5 @@
 
 +!ertesit(KI) : ittvan(KI,_,_) <- ?ittvan(KI,RSZ,TEL); 
 .concat(KI,": ",RSZ,": ",TEL," hagyja el a parkolot! Izibe!",M); .print(M).
+
++!ertesit(KI) : true <- .print(KI, " nincs az epuletben.").

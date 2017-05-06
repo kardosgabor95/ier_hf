@@ -12,51 +12,46 @@ import jason.asSyntax.Literal;
 import javax.swing.*;
 
 /** example of agent architecture's functions overriding */
-public class ParkoloGUI extends AgArch {
+public class PortaGUI extends AgArch {
 
 	
 	GridLayout grid;
 	JTextField name;
-	JTextField rsz;
-	JTextField tel;
+	JTextField teremszam;
     JFrame f;
 	JPanel form;
 	JPanel gombok;
-    JButton erkezett;
-	JButton ertesit;
-	JButton tavozik;
+    JButton kulcs_ki_button;
+	JButton kulcs_be_button;
 
 
-    public ParkoloGUI() {
-        erkezett = new JButton("Uj ember erkezett");
-        erkezett.addActionListener(new ActionListener() {
+    public PortaGUI() {
+        kulcs_ki_button = new JButton("Kulcsot kiker");
+        kulcs_ki_button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                Literal goal = ASSyntax.createLiteral("erkezett", ASSyntax.createString(name.getText()),
-					ASSyntax.createString(rsz.getText()), 
-					ASSyntax.createString(tel.getText()));
+				try {
+                Literal goal = ASSyntax.createLiteral("kulcs_ki", ASSyntax.createString(name.getText()),
+					ASSyntax.parseTerm(teremszam.getText()));
                 getTS().getC().addAchvGoal(goal, null);
+				}
+				catch (Exception ex){}
             }
         });
 		
-		ertesit = new JButton("Illeto ertesitese");
-		ertesit.addActionListener(new ActionListener() {
+		kulcs_be_button = new JButton("Kulcsot visszaad");
+		kulcs_be_button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                Literal goal = ASSyntax.createLiteral("ertesit", ASSyntax.createString(name.getText()));
+				try {
+                Literal goal = ASSyntax.createLiteral("kulcs_be", ASSyntax.createString(name.getText()),
+					ASSyntax.parseTerm(teremszam.getText()));
                 getTS().getC().addAchvGoal(goal, null);
-            }
-        });
-		
-		tavozik = new JButton("Illeto tavozik");
-		tavozik.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                Literal goal = ASSyntax.createLiteral("tavozik", ASSyntax.createString(name.getText()));
-                getTS().getC().addAchvGoal(goal, null);
+				}
+				catch (Exception ex){}
             }
         });
 		
 		name = new JTextField();
-		rsz = new JTextField();
-		tel = new JTextField();
+		teremszam = new JTextField();
 		
 		grid = new GridLayout(0, 2);
 		grid.setVgap(20);
@@ -64,22 +59,19 @@ public class ParkoloGUI extends AgArch {
         form = new JPanel(grid);
 		gombok = new JPanel(new GridLayout(0, 1));
 		
-		gombok.add(erkezett);
-		gombok.add(ertesit);
-		gombok.add(tavozik);
+		gombok.add(kulcs_ki_button);
+		gombok.add(kulcs_be_button);
 		
 		form.add(new JLabel("Nev:"));
 		form.add(name);
-		form.add(new JLabel("Rendszam:"));
-        form.add(rsz);
-		form.add(new JLabel("Telefon:"));
-		form.add(tel);
+		form.add(new JLabel("Teremszam:"));
+        form.add(teremszam);
 		
-		f = new JFrame("Parkolo agens");
+		f = new JFrame("Porta agens");
         f.getContentPane().setLayout(new BorderLayout());
         f.getContentPane().add(BorderLayout.CENTER, form);
         f.getContentPane().add(BorderLayout.SOUTH, gombok);
-        f.setSize(300, 250);
+        f.setSize(300, 200);
         f.setVisible(true);
     }
 
